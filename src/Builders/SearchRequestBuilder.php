@@ -60,6 +60,10 @@ final class SearchRequestBuilder implements SearchRequestBuilderInterface
     /**
      * @var array
      */
+    private $rescore = [];
+    /**
+     * @var array
+     */
     private $aggregations = [];
     /**
      * @var array
@@ -149,6 +153,12 @@ final class SearchRequestBuilder implements SearchRequestBuilderInterface
     public function source(array $fields): self
     {
         $this->source = $fields;
+        return $this;
+    }
+
+    public function rescore(array $rescore): self
+    {
+        $this->rescore = ['rescore' => $rescore];
         return $this;
     }
 
@@ -257,6 +267,10 @@ final class SearchRequestBuilder implements SearchRequestBuilderInterface
 
         if (!empty($this->collapse)) {
             $searchRequest->setCollapse($this->collapse);
+        }
+
+        if (!empty($this->rescore)) {
+            $searchRequest->setRescore($this->rescore);
         }
 
         if (!empty($this->aggregations)) {
