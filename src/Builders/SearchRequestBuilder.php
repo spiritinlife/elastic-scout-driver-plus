@@ -158,7 +158,7 @@ final class SearchRequestBuilder implements SearchRequestBuilderInterface
 
     public function rescore(array $rescore): self
     {
-        $this->rescore = ['rescore' => $rescore];
+        $this->rescore = $rescore;
         return $this;
     }
 
