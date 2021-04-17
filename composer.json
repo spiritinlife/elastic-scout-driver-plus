@@ -42,7 +42,7 @@
         {
             "type": "vcs",
             "url": "https://github.com/spiritinlife/elastic-adapter.git"
-        },
+        }
     ],
     "require": {
         "php": "^7.2 || ^8.0",
